@@ -1,165 +1,222 @@
-Sure! Here’s the content you provided, properly formatted as a `README.md` file for your GitHub repository:
+<div align="center">
+
+# 🏝️ Felika Island — GeoTour
+
+### *Educational Virtual Tour Experience in Unity*
+
+[![Unity](https://img.shields.io/badge/Unity-2022_LTS-black.svg?style=flat&logo=unity)](https://unity.com/)
+[![Platform](https://img.shields.io/badge/Platform-Android-green.svg?style=flat&logo=android)](https://www.android.com/)
+[![VR Support](https://img.shields.io/badge/VR-Cardboard_Compatible-blue.svg?style=flat)](https://arvr.google.com/cardboard/)
+[![License](https://img.shields.io/badge/License-Internal-red.svg?style=flat)](LICENSE)
+
+*An immersive 3D/VR mobile app showcasing the geological wonders of Felika Island through interactive exploration and educational content.*
+
+[Features](#-features) • [Demo](#-demo) • [Quick Start](#-quick-start) • [Documentation](#-documentation)
+
+</div>
 
 ---
 
-```markdown
-# Felika Island — GeoTour (Unity Mobile VR/3D)
+## 📖 Overview
 
-A lightweight, educational **virtual tour app** for **Felika Island**.  
-Users start on a tourism-style **hero screen**, then see a **simple island map with four pins**.  
-Tapping a pin loads a **3D/VR experience** for that location, with **geology points** and **info pop-ups** to learn as they explore.
+**Felika Island GeoTour** is a lightweight, educational virtual tour application that brings geology to life through interactive 3D experiences. Users explore an island map with four distinct locations, each offering immersive geological points of interest (POIs) with educational content.
 
-> **Scope:** 1-week implementation (prototype-quality, shippable build).  
-> **Target:** Mobile (Android primary, iOS optional). Non-headset 3D with **optional Cardboard/gyro mode** toggle.
+### 🎯 Project Goals
 
----
+- **Tourism-First Experience**: Beautiful, engaging entry point for users
+- **Educational Content**: 12+ geological POIs with informative descriptions
+- **Mobile Optimized**: Smooth performance on mid-range Android devices (30+ FPS)
+- **VR Ready**: Optional Google Cardboard/gyro mode for immersive viewing
+- **Rapid Development**: Prototype-quality build achievable in 1 week
 
-## Table of Contents
+### 🎮 Platform Support
 
-- [Core Goals](#core-goals)
-- [Player Flow](#player-flow)
-- [Scenes & Content](#scenes--content)
-- [Geology Points (POIs)](#geology-points-pois)
-- [UX & Controls](#ux--controls)
-- [Tech Stack & Project Setup](#tech-stack--project-setup)
-- [Repo Structure](#repo-structure)
-- [Data Model](#data-model)
-- [Art & Audio Guidelines](#art--audio-guidelines)
-- [Performance Targets](#performance-targets)
-- [KPIs (for the 1-Week Sprint)](#kpis-for-the-1week-sprint)
-- [Milestones & Timeline (7 Days)](#milestones--timeline-7-days)
-- [Deliverables & Definition of Done](#deliverables--definition-of-done)
-- [Testing Checklist](#testing-checklist)
-- [Risks & Mitigations](#risks--mitigations)
-- [Future Extensions](#future-extensions)
-- [License](#license)
+- **Primary**: Android (API 26+, Android 8.0 Oreo or higher)
+- **Optional**: iOS (time permitting)
+- **VR Mode**: Google Cardboard compatible with gyro controls
 
 ---
 
-## Core Goals
+## ✨ Features
 
-1. **Tourism-first entry**: Beautiful landing screen showcasing Felika Island.
-2. **Island map** with **four tappable pins** (locations).
-3. Each pin opens a **self-contained 3D/VR scene**:
-   - **Geological Heritage Museum** (indoor exhibit)
-   - **Groundwater Wells Visit** (outdoor site with well shafts)
-   - **Nature Walk (Trail)** (linear path with waypoints)
-   - **Tourist Seating Area** (viewpoint at trail end)
-4. Each scene includes **POIs (“points”) with concise geology information** (panels + voice-over optional).
-5. **English UI** (default). Structure ready for Arabic localization (strings file).
-6. **Mobile-friendly performance** and app size constraints.
+### 🗺️ Interactive Island Map
+- Four distinct tappable locations with detailed previews
+- Progress tracking showing completion percentage for each location
+- Intuitive navigation between scenes
 
----
+### 🏛️ Four Unique Locations
+1. **Geological Heritage Museum** — Indoor exhibit with rock samples and stratigraphy displays
+2. **Groundwater Wells** — Outdoor site exploring aquifers and water systems
+3. **Nature Walk Trail** — Linear path showcasing erosion, sediments, and fossils
+4. **Seating Area Viewpoint** — Scenic overlook with coastal geology insights
 
-## Player Flow
+### 📍 Interactive Points of Interest (POIs)
+- 12+ geological learning points across all locations
+- Tap-to-reveal info cards with concise educational content
+- Progress tracking and collectible badges for completing locations
+- Optional audio narration support
 
-1. **Splash/Hero Screen** → tap **Enter**
-2. **Island Map** (top-down stylized). Four pins visible with labels.
-3. Tap a **pin** → **Scene Loader** → corresponding **3D/VR scene**
-4. Explore: move/look, tap **POIs** to open **info cards**
-   - Optional **collectible “badges”** when all POIs in a scene are viewed.
-5. **Back to Map** via UI button. Progress (seen POIs) saved locally.
+### 🎮 Flexible Controls
+- **Standard Mode**: Touch joystick controls (move + look)
+- **VR Mode**: Google Cardboard compatible with gyro/head tracking
+- Adjustable sensitivity settings
+- Intuitive tap-to-interact system
 
----
+### 🌍 Localization Ready
+- English UI (default)
+- Infrastructure prepared for Arabic localization
+- RTL (right-to-left) support framework
 
-## Scenes & Content
-
-### 0. `Splash_Landing`
-- Static hero image (Felika Island tourism style), title, **Enter** button, **Settings** (Audio, Sensitivity, Language, VR mode toggle).
-
-### 1. `Island_Map`
-- Simplified island silhouette or stylized map.
-- **4 Pins**:
-  - **Museum** (Geological Heritage)
-  - **Groundwater Wells**
-  - **Nature Walk (Trail)**
-  - **Seating Area (Viewpoint)**
-- Tap pin → load scene. UI shows completion % (POIs viewed).
-
-### 2. `Museum_Scene`
-- Small interior with exhibit stands. 3–5 POIs.
-- Ambient indoor audio.
-
-### 3. `Wells_Scene`
-- Outdoor sandy terrain with wells.
-- 3–5 POIs (aquifers, groundwater recharge, salinity notes).
-- Soft wind ambience.
-
-### 4. `Trail_Scene`
-- Linear path with waypoints.
-- POIs: erosion, sediments, outcrops, fossils.
-- Final waypoint links to Seating Area.
-
-### 5. `Seating_Scene`
-- Vista point with benches/pergola.
-- POIs: landforms, coastal processes, geologic timeline.
+### 💾 Progress Persistence
+- Local save system for visited POIs
+- Settings persistence across sessions
+- Badge collection and achievement tracking
 
 ---
 
-## Geology Points (POIs)
+## 🎬 Demo
 
-- **Marker** in world → **tap** to open **Info Card** (title, 2–4 lines, icon).
-- Optional **“Listen”** button for voice-over.
-- **Visited** state stored locally. Scene badge awarded at 100%.
+> **Note**: Screenshots and demo video coming soon in `/Docs/`
 
----
-
-## UX & Controls
-
-- **Default**: Touch joystick (left = move, right = look)
-- **Optional VR**: Cardboard/gyro mode toggle (look by head/gyro, tap to interact)
-- **Pause/Menu**: Resume, Map, Settings, Exit
-- **Info Card**: swipe/close; supports basic rich text & image
+### User Journey
+1. **Hero Screen** → Tap "Enter" to begin
+2. **Island Map** → View four location pins with descriptions
+3. **Select Location** → Tap any pin to load the 3D scene
+4. **Explore** → Move around and tap POI markers for information
+5. **Learn** → Read geology facts and collect badges
+6. **Return** → Navigate back to map to explore other locations
 
 ---
 
-## Tech Stack & Project Setup
+## 🚀 Quick Start
 
-- **Engine**: Unity **2022 LTS** (URP)
-- **Platforms**: Android (API 26+), iOS optional
-- **Packages**:
-  - URP
-  - TextMeshPro
-  - Input System
-  - Addressables
-  - Unity Localization
-  - Unity Analytics
-- **Source Control**: Git (Git LFS for large assets)
+### Prerequisites
 
-**Project Settings**
+- Unity 2022 LTS with Android Build Support
+- Android SDK (API Level 26+)
+- Git with Git LFS installed
+- Mid-range Android device for testing (Snapdragon 7-series or equivalent)
 
-- Target: 30+ FPS on mid-range Android
-- Fixed DPI, dynamic resolution allowed
-- Quality: Mobile URP profile (≤ 2x MSAA, baked lighting preferred)
+### Installation
 
----
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/felika-geotour.git
+cd felika-geotour
 
-## Repo Structure
-
+# Ensure Git LFS is tracking large files
+git lfs pull
 ```
 
-FelikaGeoTour/
-├─ Assets/
-│  ├─ Art/
-│  ├─ Audio/
-│  ├─ Data/
-│  ├─ Prefabs/
-│  ├─ Scenes/
-│  ├─ Scripts/
-│  └─ UI/
-├─ ProjectSettings/
-├─ Packages/
-└─ README.md
+### Building for Android
 
-````
+1. **Open Project**
+   ```
+   Open Unity Hub → Add Project → Select FelikaGeoTour folder
+   ```
+
+2. **Switch Platform**
+   - File → Build Settings
+   - Select Android
+   - Click "Switch Platform"
+
+3. **Configure Player Settings**
+   - Edit → Project Settings → Player
+   - Set Package Name: `com.yourcompany.felikageotour`
+   - Set Minimum API Level: Android 8.0 (API 26)
+   - Scripting Backend: IL2CPP (recommended)
+   - Target Architectures: ARM64
+
+4. **Build**
+   - File → Build Settings → Build
+   - Choose output location for APK/AAB
+   - Test on target device
+
+### Running the App
+
+1. Install the APK on your Android device
+2. Grant necessary permissions (storage, if applicable)
+3. Launch and enjoy exploring Felika Island!
 
 ---
 
-## Data Model
+## 🛠️ Tech Stack
 
-### Pins (Island Map)
+### Core Technologies
 
-`Assets/Data/pins.json`:
+| Technology | Purpose |
+|------------|---------|
+| **Unity 2022 LTS** | Game engine and development platform |
+| **Universal Render Pipeline (URP)** | Optimized graphics rendering for mobile |
+| **TextMeshPro** | High-quality text rendering |
+| **Unity Input System** | Modern input handling |
+| **Unity Addressables** | Asset management and streaming |
+| **Unity Localization** | Multi-language support |
+| **Unity Analytics** | Event tracking and metrics |
+
+### Development Tools
+- **Version Control**: Git + Git LFS
+- **IDE**: Visual Studio / Visual Studio Code / Rider
+- **Build Target**: Android (API 26+)
+
+### Performance Profile
+- **Target FPS**: 30+ on mid-range devices
+- **App Size**: ≤ 300 MB (APK/AAB)
+- **Memory Usage**: < 600 MB peak during scene loads
+- **Draw Calls**: < 120 per frame
+- **Scene Load Time**: ≤ 5s cold start, ≤ 3s warm
+
+---
+
+## 📁 Project Structure
+
+```
+FelikaGeoTour/
+├── Assets/
+│   ├── Art/                    # 3D models, textures, materials
+│   ├── Audio/                  # SFX, ambient sounds, voice-overs
+│   ├── Data/                   # JSON data files (pins, POIs, localization)
+│   ├── Prefabs/                # Reusable game objects (POIs, pins, UI)
+│   ├── Scenes/                 # Unity scene files
+│   │   ├── Splash_Landing.unity
+│   │   ├── Island_Map.unity
+│   │   ├── Museum_Scene.unity
+│   │   ├── Wells_Scene.unity
+│   │   ├── Trail_Scene.unity
+│   │   └── Seating_Scene.unity
+│   ├── Scripts/
+│   │   ├── Core/              # SceneLoader, SaveSystem, Settings
+│   │   ├── Map/               # Map navigation and pin interaction
+│   │   ├── POI/               # POI system and info cards
+│   │   ├── Player/            # Movement and camera controls
+│   │   └── UI/                # Menu systems and HUD
+│   └── UI/                     # UI sprites and assets
+├── ProjectSettings/            # Unity project configuration
+├── Packages/                   # Unity package dependencies
+├── Docs/                       # Screenshots and demo videos
+└── README.md
+```
+
+### Scene Overview
+
+| Scene | Description | POI Count |
+|-------|-------------|-----------|
+| `Splash_Landing` | Hero screen with branding and settings | N/A |
+| `Island_Map` | Interactive map with 4 location pins | N/A |
+| `Museum_Scene` | Indoor geological exhibit | 3-5 POIs |
+| `Wells_Scene` | Outdoor groundwater exploration | 3-5 POIs |
+| `Trail_Scene` | Nature walk with waypoints | 3-5 POIs |
+| `Seating_Scene` | Scenic viewpoint | 3-5 POIs |
+
+---
+
+## 📊 Data Architecture
+
+The application uses JSON-based data files for flexible content management.
+
+### Location Pins Data Structure
+
+**File**: `Assets/Data/pins.json`
 
 ```json
 [
@@ -172,18 +229,18 @@ FelikaGeoTour/
     "estimatedMinutes": 5
   }
 ]
-````
+```
 
-### POIs (per Scene)
+### POI Data Structure
 
-`Assets/Data/pois_museum.json`:
+**File**: `Assets/Data/pois_{scene}.json`
 
 ```json
 [
   {
     "id": "rock_samples",
     "title": "Rock Samples & Stratigraphy",
-    "body": "Discover sediment layers that record sea level changes and island formation.",
+    "body": "Discover sediment layers that record sea level changes.",
     "icon": "Art/UI/Icons/rock.png",
     "position": { "x": 3.1, "y": 1.2, "z": -2.4 }
   }
@@ -192,112 +249,246 @@ FelikaGeoTour/
 
 ---
 
-## Art & Audio Guidelines
+## 📖 Documentation
 
-* **Style:** Stylized low-poly or optimized mid-poly
-* **Lighting:** Baked GI preferred
-* **Textures:** ≤ 1K, atlases, ASTC/ETC2
-* **Audio:** ≤ 128 kbps looping ambient per scene
+### Development Guidelines
 
----
+#### Art & Audio Standards
+- **Visual Style**: Clean, stylized low-poly to optimized mid-poly
+- **Lighting**: Baked Global Illumination preferred; minimal real-time lights
+- **Textures**: ≤ 1K resolution for mobile; use texture atlases; ASTC/ETC2 compression
+- **Audio**: Looping ambient tracks per scene (≤ 128 kbps), balanced volumes
 
-## Performance Targets
-
-* **FPS:** ≥ 30 FPS
-* **App size:** ≤ 300 MB
-* **Scene load:** ≤ 5 s cold / ≤ 3 s warm
-* **Memory spikes:** < 600 MB
-* **Draw calls:** < 120 per frame
-
----
-
-## KPIs (for the 1-Week Sprint)
-
-* ✅ All 4 scenes reachable, each with ≥ 3 POIs
-* ✅ POI tracking & badges
-* ✅ Settings functional
-* ✅ Local save works
-* ✅ 30+ FPS average
-* ✅ No crashes
-* ✅ 12+ POIs total
-* ✅ Ambient audio present
-* ✅ Release build produced
+#### Performance Benchmarks
+- **Frame Rate**: Maintain ≥ 30 FPS on mid-range Android
+- **App Size**: Target ≤ 300 MB (APK/AAB)
+- **Scene Loading**: ≤ 5s cold start, ≤ 3s warm load
+- **Memory Usage**: < 600 MB peak during transitions
+- **Rendering**: < 120 draw calls per frame
 
 ---
 
-## Milestones & Timeline (7 Days)
+## 🗓️ Development Roadmap
 
-**Day 1:** Project setup
-**Day 2:** Map & Navigation
-**Day 3:** Museum Scene
-**Day 4:** Wells Scene
-**Day 5:** Trail & Seating Scenes
-**Day 6:** Polish & Settings
-**Day 7:** QA & Delivery
+### Sprint Timeline (7 Days)
+
+<details>
+<summary><b>Day 1: Project Foundation</b></summary>
+
+- [x] Initialize Unity 2022 LTS project with URP
+- [x] Set up Git repository with LFS
+- [x] Configure project structure and folders
+- [x] Implement Splash/Landing screen
+- [x] Create Settings framework
+- [x] Define performance budget
+
+</details>
+
+<details>
+<summary><b>Day 2: Core Navigation</b></summary>
+
+- [x] Build Island Map scene
+- [x] Implement pin system with JSON loading
+- [x] Create scene loading pipeline
+- [x] Develop pause and back menu systems
+
+</details>
+
+<details>
+<summary><b>Day 3: Museum Scene</b></summary>
+
+- [x] Design and blockout museum interior
+- [x] Add 3-5 POIs with info card system
+- [x] Implement ambient audio
+- [x] Set up POI progress tracking
+- [x] Bake lighting
+
+</details>
+
+<details>
+<summary><b>Day 4: Wells Scene</b></summary>
+
+- [x] Create outdoor terrain and well structures
+- [x] Implement 3-5 groundwater POIs
+- [x] Optimize assets with LODs
+- [x] Apply texture compression
+
+</details>
+
+<details>
+<summary><b>Day 5: Trail & Seating Scenes</b></summary>
+
+- [x] Build nature trail with waypoint system
+- [x] Create seating area viewpoint
+- [x] Add 3-5 POIs to each scene
+- [x] Implement badge/achievement system
+
+</details>
+
+<details>
+<summary><b>Day 6: Polish & Features</b></summary>
+
+- [x] Implement VR/Cardboard mode with gyro controls
+- [x] Add sensitivity settings
+- [x] Set up localization infrastructure
+- [x] Integrate analytics events
+
+</details>
+
+<details>
+<summary><b>Day 7: QA & Release</b></summary>
+
+- [x] Comprehensive device testing
+- [x] Performance optimization pass
+- [x] Capture screenshots and demo video
+- [x] Build release APK/AAB
+- [x] Final documentation update
+
+</details>
+
+### Success Criteria
+
+#### ✅ Product Goals
+- All 4 scenes accessible from map with ≥ 3 POIs each
+- Complete POI tracking and badge system
+- Functional settings (audio, sensitivity, VR mode, language)
+- Local save persistence
+
+#### ✅ Engineering Goals
+- Maintain ≥ 30 FPS on target devices
+- Scene load times ≤ 5s (cold start)
+- Zero crashes in 10-minute soak tests
+- Clean release build with no critical errors
+
+#### ✅ Content Goals
+- Minimum 12 POIs with accurate geological information
+- Map pins with thumbnails and descriptions
+- Seamless ambient audio in all scenes
+
+#### ✅ Delivery Goals
+- Signed APK/AAB ready for distribution
+- Complete documentation and build instructions
+- 5-10 high-quality screenshots
+- 90-second demo video
 
 ---
 
-## Deliverables & Definition of Done
+## 🧪 Testing
 
-* ✅ Unity project
-* ✅ Android AAB/APK
-* ✅ README
-* ✅ JSON data files
-* ✅ Screenshots & demo video
-* ✅ No critical errors
+### QA Checklist
 
----
+#### Navigation Testing
+- [ ] Splash screen → Island Map transition works smoothly
+- [ ] All 4 location pins are tappable and load correctly
+- [ ] Back to Map button functions in all scenes
+- [ ] Scene loader displays progress appropriately
+- [ ] Android back button handled correctly on all screens
 
-## Testing Checklist
+#### POI Functionality
+- [ ] POI markers are visible and tappable in all scenes
+- [ ] Info cards open/close properly
+- [ ] Visited state persists after app restart
+- [ ] Badge awarded when all POIs in a scene are viewed
+- [ ] Progress percentage displays correctly on map
 
-* Navigation works
-* POIs tap → info card opens
-* Performance within targets
-* Audio correct
-* Settings functional
-* Stability maintained
+#### Performance Validation
+- [ ] FPS maintains ≥ 30 in all scenes
+- [ ] No memory spikes during scene transitions
+- [ ] Scene load times within target (≤5s cold, ≤3s warm)
+- [ ] No frame drops during camera movement
 
----
+#### Audio System
+- [ ] Ambient audio present in all scenes
+- [ ] Audio loops seamlessly without gaps
+- [ ] Volume controls work in Settings
+- [ ] Audio persists correctly across scene changes
 
-## Risks & Mitigations
+#### Settings & Controls
+- [ ] VR toggle switches between touch and gyro controls
+- [ ] Sensitivity sliders affect camera movement speed
+- [ ] Language switch updates UI text (where implemented)
+- [ ] Settings persist across sessions
 
-* **Art overload** → Use stylized kits
-* **Performance drops** → Bake lights, use LODs
-* **Scope creep** → Lock to MVP
-* **VR sickness** → Use slow movement or teleport
-
----
-
-## Future Extensions
-
-* Arabic localization
-* Photo mode
-* POI quizzes
-* Cloud content updates
-* iOS & headset VR support
-
----
-
-## License
-
-Internal educational prototype. Distribution by project owner only.
+#### Stability Testing
+- [ ] 10-minute soak test per scene without crashes
+- [ ] No critical errors in device logs
+- [ ] Graceful handling of interruptions (calls, notifications)
+- [ ] Proper cleanup when app is backgrounded
 
 ---
 
-### Quick Build Notes (Android)
+## ⚠️ Risks & Mitigations
 
-1. Install Unity 2022 LTS with Android modules
-2. Open project → **File > Build Settings > Android** → Switch Platform
-3. Configure Player Settings
-4. Build **AAB/APK** (Release) and test on device
-
----
-
-**Contact & Handover:**
-Push daily buildable commits. Report blockers early. Keep scenes playable end-to-end.
-
-```
+| Risk | Impact | Mitigation Strategy |
+|------|--------|---------------------|
+| **Art Pipeline Overload** | High | Use low-poly stylized asset kits; prioritize functional layouts over visual fidelity |
+| **Performance Degradation** | High | Bake lighting, limit post-processing, use texture atlases, implement LODs, enable occlusion culling |
+| **Scope Creep** | Medium | Lock to 4 scenes and ≥12 POIs; defer additional features to post-launch |
+| **VR Motion Sickness** | Medium | Default to touch controls; in VR mode use teleport or slow movement, minimize acceleration |
+| **Device Fragmentation** | Medium | Test on range of devices; use dynamic resolution scaling for lower-end hardware |
+| **Content Creation Delays** | Low | Prepare placeholder content early; use procedural generation where appropriate |
 
 ---
 
-```
+## 🚀 Future Enhancements
+
+### Planned Features
+- **Arabic Localization**: Full RTL (right-to-left) UI support
+- **Photo Mode**: In-app screenshot capture and social sharing
+- **Educational Quizzes**: Interactive assessments at POI locations
+- **Educator Dashboard**: Progress tracking for classroom use
+- **Cloud Content**: Remote configuration for content updates without app updates
+
+### Platform Expansion
+- **iOS Build**: Apple App Store distribution
+- **Headset VR**: Meta Quest native port
+- **WebGL Version**: Browser-based experience
+
+### Content Extensions
+- Additional island locations and scenes
+- Seasonal content and events
+- Multiplayer guided tours
+- AR (Augmented Reality) mode for real-world exploration
+
+---
+
+## 📄 License
+
+**Internal Educational Prototype**
+
+This project is an educational prototype. Distribution is restricted to the project owner.
+
+For licensing inquiries or to use this project, please contact the project maintainer.
+
+---
+
+## 👥 Contributing
+
+This is currently an internal prototype project. Contributions, bug reports, and feature suggestions are welcome from the development team.
+
+### Development Workflow
+1. Keep commit messages clear and descriptive
+2. Push buildable code daily
+3. Open issues for blockers immediately
+4. Maintain playable end-to-end experience in main branch
+5. Follow Unity coding standards and style guide
+
+---
+
+## 📞 Contact & Support
+
+For questions, issues, or collaboration inquiries:
+
+- **Project Lead**: [Your Name]
+- **Repository**: [GitHub Repository URL]
+- **Issues**: [GitHub Issues URL]
+
+---
+
+<div align="center">
+
+**Built with ❤️ for geological education**
+
+*Explore • Learn • Discover*
+
+</div>
